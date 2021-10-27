@@ -10,14 +10,14 @@ import 'package:capstone_proj/profile_view.dart';
 
 
 
-class HomePage extends StatefulWidget {
+class HomePageOwner extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _HomeState();
+    return _HomeStateOwner();
   }
 }
 
-class _HomeState extends State<HomePage> {
+class _HomeStateOwner extends State<HomePageOwner> {
   int _currentIndex = 0;
   //left to right, what appaears when click tab
   final List<Widget> _children = [
@@ -45,8 +45,8 @@ class _HomeState extends State<HomePage> {
               label: "Home",
             ),
             BottomNavigationBarItem(
-              icon: new Icon(Icons.explore),
-              label: "Explore",
+              icon: new Icon(Icons.landscape_sharp),
+              label: "My Property",
             ),
             BottomNavigationBarItem(
               icon: new Icon(Icons.person),

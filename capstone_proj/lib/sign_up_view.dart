@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:capstone_proj/services/auth_service.dart';
 import 'package:capstone_proj/widgets/provider_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:capstone_proj/Models/User.dart';
 
 final primaryColor = const Color(0xFFF44F36);
 
@@ -60,6 +63,7 @@ class _SignUpViewState extends State<SignUpView> {
 
   //submit authentication to firebase
   void submit() async {
+    User user = User("");
     if(validate()) {
       try {
         final auth = Provider.of(context).auth;

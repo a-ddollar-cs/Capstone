@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 
+
 class AuthService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
@@ -24,6 +25,7 @@ class AuthService {
     email: email,
     password: password,
   );
+
 
     //update username, status
     var user = FirebaseAuth.instance.currentUser;
@@ -89,3 +91,4 @@ class PasswordValidator {
     return null;
   }
 }
+

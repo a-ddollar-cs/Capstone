@@ -10,6 +10,7 @@ class FirstView extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
 
+    //width, height as a percentage of screen instead of set size
     final _width = MediaQuery.of(context).size.width;
     final _height = MediaQuery.of(context).size.height;
 
@@ -21,6 +22,8 @@ class FirstView extends StatelessWidget{
         child: SafeArea(
           child: Column(
             children: <Widget>[
+              SizedBox(height: _height * 0.10,),
+              Icon(Icons.filter_hdr_outlined, size: 75,),  //replace with logo
               SizedBox(height: _height * 0.10,),
               AutoSizeText(
                 "Welcome",
