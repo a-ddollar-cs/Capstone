@@ -7,6 +7,9 @@ import 'package:intl/intl.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:capstone_proj/Home.dart';
 import 'package:capstone_proj/profile_view.dart';
+import 'package:capstone_proj/OwnerViews/postsv1.dart';
+import 'package:capstone_proj/OwnerViews/LocCreation/TitleCreate.dart';
+import 'package:capstone_proj/Models/Loc.dart';
 
 
 
@@ -21,18 +24,28 @@ class _HomeStateOwner extends State<HomePageOwner> {
   int _currentIndex = 0;
   //left to right, what appaears when click tab
   final List<Widget> _children = [
+    OwnerPosts(),
     HomeTab(),
-    ExplorePage(),
     ProfileView(),
   ];
 
   @override
   Widget build(BuildContext context) {
+    final newLoc = new Loc(null,0.0,null);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
         title: Text("LandBuddy"),
         actions: <Widget> [
+          IconButton(
+              icon: Icon(Icons.add),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => NewLocTitle(loc: newLoc)),
+                );
+              },
+              )
         ],
       ),
       body: _children[_currentIndex],

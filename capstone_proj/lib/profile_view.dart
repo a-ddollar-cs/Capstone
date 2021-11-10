@@ -199,31 +199,6 @@ class _ProfileViewState extends State<ProfileView> {
                         HomeController();
                       },
                     ),
-
-                    // ElevatedButton(
-                    //   style: ElevatedButton.styleFrom(
-                    //     shape: RoundedRectangleBorder(
-                    //         borderRadius: BorderRadius.circular(30.0)),
-                    //     primary: Colors.white,
-                    //   ),
-                    //   child: Padding(
-                    //       padding: const EdgeInsets.all(8.0),
-                    //       child: Text("Save", style: TextStyle(
-                    //           fontSize: 20.0,
-                    //           fontWeight: FontWeight.w300,
-                    //           color: Colors.deepOrange),)
-                    //   ),
-                    //   onPressed:() async {
-                    //     user.bio = _userBioController.text; //save to view
-                    //
-                    //     //save to firebase
-                    //     final uid = await Provider.of(context).auth.getCurrentID();
-                    //
-                    //     await Provider.of(context).db.collection('userData').doc(uid).set(user.toJson());
-                    //
-                    //     Navigator.of(context).pop();
-                    //   },
-                    // ),
                   ],
                 ),
                 Row(
