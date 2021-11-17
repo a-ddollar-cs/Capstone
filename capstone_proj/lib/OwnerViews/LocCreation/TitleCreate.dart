@@ -1,3 +1,4 @@
+import 'package:capstone_proj/OwnerViews/LocCreation/DescriptionCreate.dart';
 import 'package:capstone_proj/sign_up_view.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -14,7 +15,6 @@ import 'package:capstone_proj/OwnerViews/LocCreation/PriceCreate.dart';
 class NewLocTitle extends StatelessWidget {
   final Loc loc;
   NewLocTitle({Key key, @required this.loc}) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -44,12 +44,14 @@ class NewLocTitle extends StatelessWidget {
             ),
           ),
           ElevatedButton(
-              child: Text("Continue"),
-              onPressed: () {
-                loc.title = _titleController.text;
-                Navigator.push(context, MaterialPageRoute(builder: (context) => NewLocPrice(loc: loc)),
-                );
-              },
+            child: Text("Continue"),
+            onPressed: () {
+              loc.title = _titleController.text;
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => NewLocDesc(loc: loc)),
+              );
+            },
           ),
         ],
       ),

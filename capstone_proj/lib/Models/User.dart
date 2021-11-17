@@ -1,5 +1,4 @@
 class User {
-
   //setup bool for owner/renter stuff
   bool owner;
   String bio;
@@ -7,9 +6,7 @@ class User {
   User(this.bio);
 
   Map<String, dynamic> toJson() => {
-    'bio': bio,
-    'owner': owner,
-  };
-
-
+        'bio': bio,
+        'owner': owner,
+      };
 }

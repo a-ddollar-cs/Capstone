@@ -1,4 +1,3 @@
-import 'package:capstone_proj/OwnerViews/LocCreation/ContactCreate.dart';
 import 'package:capstone_proj/OwnerViews/LocCreation/ImageUpload.dart';
 import 'package:capstone_proj/sign_up_view.dart';
 import 'package:flutter/material.dart';
@@ -12,31 +11,32 @@ import 'package:capstone_proj/profile_view.dart';
 import 'package:english_words/english_words.dart';
 import 'package:capstone_proj/Models/Loc.dart';
 import 'package:capstone_proj/OwnerViews/LocCreation/PriceCreate.dart';
-import 'package:capstone_proj/widgets/provider_widget.dart';
 
-class NewLocRules extends StatelessWidget {
+class NewLocK extends StatelessWidget {
   final Loc loc;
-  NewLocRules({Key key, @required this.loc}) : super(key: key);
+
+  NewLocK({Key key, @required this.loc}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     TextEditingController _titleController = new TextEditingController();
 
-    _titleController.text = loc.rules;
+    _titleController.text = loc.contactInfo;
 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
-        title: Text("Add Property- Rules"),
+        title: Text("Add Property- Contact Info"),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(
-                "Enter any ground rules or need to know info",
-                style: new TextStyle(fontSize: 20.0),
+              child: AutoSizeText(
+                "Enter contact information for the property",
+                style: new TextStyle(fontSize: 25.0),
+                maxLines: 1,
               )),
           Padding(
             padding: const EdgeInsets.all(30.0),
@@ -46,16 +46,15 @@ class NewLocRules extends StatelessWidget {
             ),
           ),
           ElevatedButton(
-              child: Text("Continue"),
-              onPressed: () async {
-                //save to firebase
-                loc.rules = _titleController.text;
-
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => NewLocK(loc: loc)),
-                );
-              }),
+            child: Text("Continue"),
+            onPressed: () {
+              loc.contactInfo = _titleController.text;
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ImageUpload(loc: loc)),
+              );
+            },
+          ),
         ],
       ),
     );
