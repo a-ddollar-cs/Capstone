@@ -10,6 +10,7 @@ class Loc {
   String picUrl;
   String contactInfo = "Not Provided";
   String description = "Not Provided";
+  String ownerId;
 
   Loc(this.title, this.price, this.rules, this.picUrl, this.contactInfo,
       this.description);
@@ -22,6 +23,7 @@ class Loc {
         'picUrl': picUrl,
         'contact': contactInfo,
         'description': description,
+        'ownerId' : ownerId,
       };
 
   Loc.fromSnapshot(DocumentSnapshot snapshot)
@@ -31,5 +33,6 @@ class Loc {
         id = snapshot['id'],
         picUrl = snapshot['picUrl'],
         contactInfo = snapshot['contact'],
-        description = snapshot['description'];
+        description = snapshot['description'],
+        ownerId = snapshot['ownerId'];
 }

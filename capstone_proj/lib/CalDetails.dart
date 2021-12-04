@@ -1,4 +1,4 @@
-import 'package:capstone_proj/RenterViews/bookingView.dart';
+import 'package:capstone_proj/Models/Booking.dart';
 import 'package:flutter/material.dart';
 import 'package:capstone_proj/OwnerViews/LocCreation/ImageUpload.dart';
 import 'package:capstone_proj/sign_up_view.dart';
@@ -14,9 +14,9 @@ import 'package:english_words/english_words.dart';
 import 'package:capstone_proj/Models/Loc.dart';
 import 'package:capstone_proj/OwnerViews/LocCreation/PriceCreate.dart';
 
-class LocDetails extends StatelessWidget {
-  final Loc loc;
-  LocDetails({Key key, @required this.loc}) : super(key: key);
+class CalDetails extends StatelessWidget {
+  final Booking book;
+  CalDetails({Key key, @required this.book}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,18 +26,18 @@ class LocDetails extends StatelessWidget {
           CustomScrollView(
             slivers: <Widget>[
               SliverAppBar(
-                title: Text('Location Details'),
+                title: Text('Booking Details'),
                 backgroundColor: Colors.deepOrange,
                 expandedHeight: 300.0,
                 flexibleSpace: FlexibleSpaceBar(
-                  background: Image.network(loc.picUrl, fit: BoxFit.cover),
+                  background: Image.network(book.picUrl, fit: BoxFit.cover),
                 ),
               ),
               SliverFixedExtentList(
                   itemExtent: 100.00,
                   delegate: SliverChildListDelegate([
                     AutoSizeText(
-                      loc.title,
+                      book.locTitle,
                       style: TextStyle(
                         fontSize: 40,
                         decorationStyle: TextDecorationStyle.wavy,
@@ -48,6 +48,18 @@ class LocDetails extends StatelessWidget {
                   itemExtent: 50.00,
                   delegate: SliverChildListDelegate([
                     AutoSizeText(
+                      "Booked From:",
+                      style: TextStyle(
+                        fontSize: 30,
+                        decorationStyle: TextDecorationStyle.wavy,
+                      ),
+                    ),
+
+                    Text(
+                      "${DateFormat('MM/dd/yyyy').format(book.startTime).toString()} - ${DateFormat('MM/dd/yyyy').format(book.endTime).toString()}",
+                      style: new TextStyle(fontSize: 20.0),
+                    ),
+                    AutoSizeText(
                       "Description",
                       style: TextStyle(
                         fontSize: 30,
@@ -55,7 +67,7 @@ class LocDetails extends StatelessWidget {
                       ),
                     ),
                     AutoSizeText(
-                      loc.description,
+                      book.description,
                       style: TextStyle(
                         fontSize: 25,
                         decorationStyle: TextDecorationStyle.wavy,
@@ -78,7 +90,7 @@ class LocDetails extends StatelessWidget {
                       ),
                     ),
                     AutoSizeText(
-                      "\$ ${loc.price.toString()}0/day",
+                      "\$ ${book.price.toString()}0/day",
                       style: TextStyle(
                         fontSize: 25,
                         decorationStyle: TextDecorationStyle.wavy,
@@ -101,7 +113,7 @@ class LocDetails extends StatelessWidget {
                       ),
                     ),
                     AutoSizeText(
-                      loc.rules,
+                      book.rules,
                       style: TextStyle(
                         fontSize: 25,
                         decorationStyle: TextDecorationStyle.wavy,
@@ -124,7 +136,7 @@ class LocDetails extends StatelessWidget {
                       ),
                     ),
                     AutoSizeText(
-                      loc.contactInfo,
+                      book.contactInfo,
                       style: TextStyle(
                         fontSize: 25,
                         decorationStyle: TextDecorationStyle.wavy,
@@ -137,29 +149,6 @@ class LocDetails extends StatelessWidget {
                     Text(''),
                   ])),
             ],
-          ),
-          new Positioned(
-            bottom: 75.0,
-            right: 16.0,
-            child: Row(
-              children: <Widget>[
-                Text("Book Now!  ", style: TextStyle(fontSize: 25,),),
-                new FloatingActionButton(
-                  onPressed: () {
-
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => BookingView(loc: loc)),
-                    );
-
-                  },
-                  child: new Icon(Icons.calendar_today_outlined),
-                ),
-              ],
-            )
-
-
           ),
         ],
       ),

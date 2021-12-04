@@ -1,3 +1,4 @@
+import 'package:capstone_proj/CalendarView.dart';
 import 'package:capstone_proj/RenterViews/postsRenterv1.dart';
 import 'package:capstone_proj/sign_up_view.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,7 @@ class _HomeState extends State<HomePage> {
   //left to right, what appaears when click tab
   final List<Widget> _children = [
     RenterHomepage(),
-    ExplorePage(),
+    MyCalendar(),
     ProfileView(),
   ];
 

@@ -1,4 +1,7 @@
-import 'package:capstone_proj/OwnerViews/OwnerDetails.dart';
+import 'package:capstone_proj/CalDetails.dart';
+import 'package:capstone_proj/Models/Booking.dart';
+import 'package:flutter/material.dart';
+import 'package:capstone_proj/OwnerViews/LocCreation/ImageUpload.dart';
 import 'package:capstone_proj/sign_up_view.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -10,9 +13,9 @@ import 'package:capstone_proj/Home.dart';
 import 'package:capstone_proj/profile_view.dart';
 import 'package:english_words/english_words.dart';
 import 'package:capstone_proj/Models/Loc.dart';
-import 'package:capstone_proj/widgets/provider_widget.dart';
+import 'package:capstone_proj/OwnerViews/LocCreation/PriceCreate.dart';
 
-class OwnerMyProperties extends StatelessWidget {
+class MyCalendar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -35,12 +38,15 @@ class OwnerMyProperties extends StatelessWidget {
     yield* FirebaseFirestore.instance
         .collection('userData')
         .doc(uid)
-        .collection("myProperties")
+        .collection('myBookings')
         .snapshots();
   }
 
-  Widget buildLocCard(BuildContext context, DocumentSnapshot location) {
-    final loc = Loc.fromSnapshot(location);
+  Widget buildLocCard(BuildContext context, DocumentSnapshot booking) {
+    //final book = Booking.fromSnapshot(booking);
+
+    var book = new Booking();
+    book = Booking.fromSnapshot(booking);
 
     return new Container(
       child: Card(
@@ -49,20 +55,21 @@ class OwnerMyProperties extends StatelessWidget {
             padding: const EdgeInsets.all(16.0),
             child: Column(
               children: <Widget>[
-                Image.network(location['picUrl']),
+                Image.network(booking.get('picUrl')),
                 Padding(
                   padding: const EdgeInsets.only(
                     top: 8.0,
                   ),
                   child: Row(children: <Widget>[
                     Text(
-                      location['title'],
+                      booking.get('locTitle'),
                       style: new TextStyle(fontSize: 25.0),
                     ),
+
                     Spacer(),
                     Text(
-                      "\$${location['price'].toString()}0/day",
-                      style: new TextStyle(fontSize: 18.0),
+                        "${DateFormat('MM/dd/yyyy').format(booking['startTime'].toDate()).toString()} - ${DateFormat('MM/dd/yyyy').format(booking['endTime'].toDate()).toString()}",
+                      style: new TextStyle(fontSize: 15.0),
                     ),
                   ]),
                 ),
@@ -74,12 +81,11 @@ class OwnerMyProperties extends StatelessWidget {
             ),
           ),
           onTap: () {
-            print(location['title']);
 
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => OwnerDetails(loc: loc)));
+                    builder: (context) => CalDetails(book: book)));
           },
         ),
       ),

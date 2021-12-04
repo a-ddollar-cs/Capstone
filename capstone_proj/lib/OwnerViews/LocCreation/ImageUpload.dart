@@ -66,7 +66,9 @@ class _ImageUpload extends State<ImageUpload> {
                 final String fuid = UniqueKey().toString();
                 loc.picUrl = await _uploadFile(fuid);
 
-                final uid = await Provider.of(context).auth.getCurrentID();
+                final String uid = await Provider.of(context).auth.getCurrentID();
+
+                loc.ownerId = uid;
 
                 //add to owner my properties
                 await db

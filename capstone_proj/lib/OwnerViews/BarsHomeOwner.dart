@@ -1,3 +1,4 @@
+import 'package:capstone_proj/CalendarView.dart';
 import 'package:capstone_proj/RenterViews/postsRenterv1.dart';
 import 'package:capstone_proj/sign_up_view.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class _HomeStateOwner extends State<HomePageOwner> {
   final List<Widget> _children = [
     OwnerPosts(),
     OwnerMyProperties(),
-    HomeTab(),
+    MyCalendar(),
     ProfileView(),
   ];
 
