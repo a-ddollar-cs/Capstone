@@ -1,8 +1,10 @@
-# capstone_proj
+# Land Buddy
 
 An AirBnb clone for land access.
 
-## Getting Started
+## Narrative
+
+### Problem inspiration
 
 This project is a starting point for a Flutter application.
 
