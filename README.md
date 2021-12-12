@@ -12,6 +12,8 @@ Code Implementation - Included in the directory entitled [capstone_proj](https:/
 
 Design Models, Wireframes, and Diagrams - Included in the directory entitled [design&models](https://github.com/a-ddollar-cs/Capstone/tree/main/design%26models)
 
+Milestone Submissions throughout the Semester - Included in the directory entitled [Milestones](https://github.com/a-ddollar-cs/Capstone/tree/main/Milestones)
+
 ## Narrative
 
 ### What is it?
