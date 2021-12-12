@@ -8,7 +8,7 @@ Narrative & The Story of the project- Included Below
 
 Project Requirements - Included Below
 
-Code Implementation - Included in the directory entitled [C/C++]()
+Code Implementation - Included in the directory entitled [capstone_proj]()
 
 ## Narrative
 
