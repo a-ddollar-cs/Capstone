@@ -8,7 +8,7 @@ Narrative & The Story of the project- Included Below
 
 Project Requirements - Included Below
 
-Code Implementation - Included in the directory entitled [capstone_proj]()
+Code Implementation - Included in the directory entitled [capstone_proj](https://github.com/a-ddollar-cs/Capstone/tree/main/capstone_proj)
 
 ## Narrative
 
