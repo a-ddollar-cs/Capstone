@@ -10,7 +10,7 @@ Project Requirements - Included Below
 
 Code Implementation - Included in the directory entitled [capstone_proj](https://github.com/a-ddollar-cs/Capstone/tree/main/capstone_proj)
 
-Design Models, Wireframes, and Diagrams - Included in the directory entitled [Design&Models](https://github.com/a-ddollar-cs/Capstone/tree/main/design%26models)
+Design Models, Wireframes, and Diagrams - Included in the directory entitled [design&models](https://github.com/a-ddollar-cs/Capstone/tree/main/design%26models)
 
 ## Narrative
 
